@@ -22,7 +22,7 @@ def log(msg):
 def get_loader():
     SESSION_FILE = os.path.join(os.path.dirname(__file__), "session-sojjoel")
     L = instaloader.Instaloader()
-    L.load_session_from_file(SESSION_FILE)
+    L.load_session_from_file(None,SESSION_FILE)
     return L
 
 
@@ -191,4 +191,5 @@ def ciclo_monitoramento():
 
 if __name__ == "__main__":
     ciclo_monitoramento()
+
 
