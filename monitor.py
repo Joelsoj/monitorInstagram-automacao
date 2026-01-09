@@ -1,15 +1,17 @@
 import instaloader
+import os
 from datetime import datetime, timedelta
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 import logging
 
-ARQUIVO_EXCEL = r"C:\Users\joliv\OneDrive\Desktop\projetos\monitor_instagram.xlsx"
+#ARQUIVO_EXCEL = r"C:\Users\joliv\OneDrive\Desktop\projetos\monitor_instagram.xlsx"
+ARQUIVO_EXCEL = os.path.join(os.path.dirname(__file__), "monitor_instagram.xlsx")
 PERFIL = "jones.manoel"
 
 # função para criar log
-
-logging.basicConfig( filename=r"C:\Users\joliv\OneDrive\Desktop\projetos\monitor.log", level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s", )
+LOG_ARQUIVO = os.path.join(os.path.dirname(__file__), "monitor.log")
+logging.basicConfig( filename=LOG_ARQUIVO, level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s", )
 
 def log(msg):
     print(msg) # aparece no console
@@ -18,8 +20,9 @@ def log(msg):
 # função para abrir sessão.
 
 def get_loader():
+    SESSION_FILE = os.path.join(os.path.dirname(__file__), "session-sojjoel")
     L = instaloader.Instaloader()
-    L.load_session_from_file("sojjoel")
+    L.load_session_from_file(SESSION_FILE)
     return L
 
 
@@ -189,82 +192,3 @@ def ciclo_monitoramento():
 if __name__ == "__main__":
     ciclo_monitoramento()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
